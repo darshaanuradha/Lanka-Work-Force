@@ -14,6 +14,7 @@ Lanka Work Force was created to digitize informal labor hiring workflows that ar
 Many workers struggle to get regular visibility, while clients struggle to quickly find trusted local workers.
 
 This platform focuses on practical local accessibility:
+
 - simple onboarding and login
 - mobile-first experience
 - bilingual-friendly user interface (Sinhala/English)
@@ -22,13 +23,17 @@ This platform focuses on practical local accessibility:
 ## The Problem, Gap, and Solution
 
 ### Problem
+
 Daily-wage hiring often depends on word-of-mouth networks, which are slow, inconsistent, and hard to scale.
 
 ### Gap
+
 Most global gig platforms are not optimized for this context due to email-first signups, complex user flows, and higher digital literacy assumptions.
 
 ### Solution
+
 Lanka Work Force bridges this gap by offering:
+
 - phone number + PIN style onboarding
 - worker discovery by category and location
 - lightweight trust signals through ratings/reviews
@@ -36,12 +41,12 @@ Lanka Work Force bridges this gap by offering:
 
 ## Feature Highlights
 
-| Area | What It Supports |
-|---|---|
-| Worker Profiles | Registration, profile setup, visibility to clients |
-| Worker Discovery | Search and filter by service type and location |
-| Trust Layer | Ratings and reviews after completed work |
-| Accessibility | Mobile-responsive and bilingual-friendly UX |
+| Area             | What It Supports                                   |
+| ---------------- | -------------------------------------------------- |
+| Worker Profiles  | Registration, profile setup, visibility to clients |
+| Worker Discovery | Search and filter by service type and location     |
+| Trust Layer      | Ratings and reviews after completed work           |
+| Accessibility    | Mobile-responsive and bilingual-friendly UX        |
 
 ## Architecture Snapshot
 
@@ -52,6 +57,7 @@ The project follows a modular Django structure:
 - Data layer: Django ORM with relational database support
 
 Core entities include:
+
 - CustomUser
 - WorkerProfile
 - Category
@@ -172,6 +178,7 @@ If Selenium-based tests are enabled, ensure browser drivers are installed and av
 ## Deployment Notes
 
 For production deployment:
+
 - use gunicorn as the application server
 - serve static files with whitenoise
 - set `DEBUG=False`
@@ -185,14 +192,14 @@ Project proposal files are available in the `docs` directory.
 
 Replace placeholders with final team details:
 
-| Name | Student ID | Role | Responsibilities |
-|---|---|---|---|
-| Member 1 | ID | Project Manager | Sprint planning, coordination |
-| Member 2 | ID | Domain Research | Market analysis, labor taxonomy |
-| Member 3 | ID | Lead Developer | Backend architecture, models |
-| Member 4 | ID | Lead Developer | Authentication, service logic |
-| Member 5 | ID | QA and Testing | Validation, testing, reports |
-| Member 6 | ID | UI and Documentation | Frontend templates, i18n, docs |
+| Name     | Student ID | Role                 | Responsibilities                |
+| -------- | ---------- | -------------------- | ------------------------------- |
+| Member 1 | ID         | Project Manager      | Sprint planning, coordination   |
+| Member 2 | ID         | Domain Research      | Market analysis, labor taxonomy |
+| Member 3 | ID         | Lead Developer       | Backend architecture, models    |
+| Member 4 | ID         | Lead Developer       | Authentication, service logic   |
+| Member 5 | ID         | QA and Testing       | Validation, testing, reports    |
+| Member 6 | ID         | UI and Documentation | Frontend templates, i18n, docs  |
 
 ## Academic Integrity
 
