@@ -93,9 +93,9 @@ if db_engine == "mysql":
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.mysql",
-            "NAME": os.getenv("DB_NAME"),
-            "USER": os.getenv("DB_USER"),
-            "PASSWORD": os.getenv("DB_PASSWORD"),
+            "NAME": os.getenv("MYSQL_DB_NAME", "lanka_work_force"),
+            "USER": os.getenv("MYSQL_DB_USER", "root"),
+            "PASSWORD": os.getenv("MYSQL_DB_PASSWORD", ""),
             "HOST": os.getenv("DB_HOST", "127.0.0.1"),
             "PORT": os.getenv("DB_PORT", "3306"),
         }
@@ -104,7 +104,7 @@ else:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
-            "NAME": os.getenv("DB_NAME", BASE_DIR / "db.sqlite3"),
+            "NAME": BASE_DIR / os.getenv("SQLITE_DB_NAME", "db.sqlite3"),
         }
     }
 
