@@ -1,55 +1,57 @@
 # Lanka Work Force
 
-Localized service marketplace for connecting clients with daily-wage workers in Sri Lanka.
+> Localized service marketplace for connecting clients with daily-wage workers across Sri Lanka.
 
-## Overview
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
+![Django](https://img.shields.io/badge/Django-5.0.3-0C4B33?logo=django&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Academic%20Project-1F6FEB)
 
-Lanka Work Force is a web platform focused on digitizing informal labor hiring workflows in Sri Lanka. It helps clients discover workers and helps workers gain visibility without requiring complex onboarding steps.
+---
 
-The project is built around local accessibility:
+## Why This Project Matters
 
-- simple registration and login
-- mobile-first interactions
-- bilingual-friendly user experience
-- practical communication options for faster hiring
+Lanka Work Force was created to digitize informal labor hiring workflows that are still largely offline.
+Many workers struggle to get regular visibility, while clients struggle to quickly find trusted local workers.
 
-## Problem and Solution
+This platform focuses on practical local accessibility:
+- simple onboarding and login
+- mobile-first experience
+- bilingual-friendly user interface (Sinhala/English)
+- direct and fast communication paths
+
+## The Problem, Gap, and Solution
 
 ### Problem
-
-Daily-wage hiring is often managed through offline word-of-mouth networks, which makes worker discovery slow and inconsistent.
+Daily-wage hiring often depends on word-of-mouth networks, which are slow, inconsistent, and hard to scale.
 
 ### Gap
+Most global gig platforms are not optimized for this context due to email-first signups, complex user flows, and higher digital literacy assumptions.
 
-Many global gig platforms are not well suited to this use case due to email-first authentication, high digital literacy requirements, and complex user flows.
+### Solution
+Lanka Work Force bridges this gap by offering:
+- phone number + PIN style onboarding
+- worker discovery by category and location
+- lightweight trust signals through ratings/reviews
+- communication options that fit local usage patterns
 
-### Proposed Solution
+## Feature Highlights
 
-Lanka Work Force addresses this by providing:
+| Area | What It Supports |
+|---|---|
+| Worker Profiles | Registration, profile setup, visibility to clients |
+| Worker Discovery | Search and filter by service type and location |
+| Trust Layer | Ratings and reviews after completed work |
+| Accessibility | Mobile-responsive and bilingual-friendly UX |
 
-- phone number and PIN style onboarding
-- worker listing and search by category and location
-- lightweight review and trust signals
-- direct communication channels suitable for local users
+## Architecture Snapshot
 
-## Key Features
+The project follows a modular Django structure:
 
-- Worker registration and profile management
-- Client-side worker search and filtering
-- Ratings and reviews
-- Bilingual interface support
-- Mobile-responsive layouts
+- Interface layer: templates and frontend assets
+- Domain layer: apps for accounts, labor directory, and reviews
+- Data layer: Django ORM with relational database support
 
-## Architecture Summary
-
-Suggested modular structure:
-
-- Interface layer: Django templates and frontend assets
-- Domain layer: business logic for accounts, worker directory, reviews
-- Data layer: Django ORM with relational database
-
-Possible core entities:
-
+Core entities include:
 - CustomUser
 - WorkerProfile
 - Category
@@ -77,46 +79,48 @@ Possible core entities:
 `-- tests/
 ```
 
-## Setup and Installation
+---
+
+## Quick Start
 
 ### Prerequisites
 
-- Python 3.10 or newer
+- Python 3.10+
 - pip
 - Git
 
-### 1. Clone repository
+### 1) Clone the repository
 
 ```bash
 git clone https://github.com/your-username/lanka-work-force.git
 cd "Lanka Work Force"
 ```
 
-### 2. Create and activate virtual environment
+### 2) Create and activate virtual environment
 
-Windows PowerShell:
+Windows (PowerShell):
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
-macOS or Linux:
+macOS/Linux:
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-### 3. Install dependencies
+### 3) Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Configure environment
+### 4) Configure environment variables
 
-Create a .env file in the project root, then add required values:
+Create a `.env` file in the project root:
 
 ```env
 DJANGO_SECRET_KEY=your_secret_key
@@ -124,76 +128,75 @@ DEBUG=True
 ALLOWED_HOSTS=127.0.0.1,localhost
 ```
 
-### 5. Apply migrations
+### 5) Apply database migrations
 
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-### 6. Run development server
+### 6) Run the app
 
 ```bash
 python manage.py runserver
 ```
 
-Open http://127.0.0.1:8000/ in your browser.
+Open: http://127.0.0.1:8000/
 
-## Usage
+## Usage Flow
 
-### For clients
+### For Clients
 
-- browse worker directory
+- browse the worker directory
 - filter by category and location
-- open direct contact method
-- submit rating and review after a completed job
+- contact workers directly through available channels
+- submit rating/review after completed work
 
-### For workers
+### For Workers
 
-- register profile
-- select skill category and location
+- create a worker profile
+- choose service category and location
 - set expected daily wage
-- become searchable to local clients
+- become discoverable to nearby clients
 
 ## Testing
 
-Run the test suite with:
+Run all tests:
 
 ```bash
 python manage.py test
 ```
 
-If Selenium tests are used, make sure browser drivers are installed and available in your PATH.
+If Selenium-based tests are enabled, ensure browser drivers are installed and available in PATH.
 
 ## Deployment Notes
 
-For production hosting:
-
-- run with gunicorn
-- use whitenoise for static files
-- set DEBUG to False
-- configure ALLOWED_HOSTS for your domain
+For production deployment:
+- use gunicorn as the application server
+- serve static files with whitenoise
+- set `DEBUG=False`
+- set production `ALLOWED_HOSTS`
 
 ## Documentation
 
-Supporting proposal documents are available in the docs directory.
+Project proposal files are available in the `docs` directory.
 
 ## Team
 
-Fill in the final team list before submission:
+Replace placeholders with final team details:
 
-| Name     | Student ID | Role                 | Responsibilities                |
-| -------- | ---------- | -------------------- | ------------------------------- |
-| Member 1 | ID         | Project Manager      | Sprint planning, coordination   |
-| Member 2 | ID         | Domain Research      | Market analysis, labor taxonomy |
-| Member 3 | ID         | Lead Developer       | Backend architecture, models    |
-| Member 4 | ID         | Lead Developer       | Authentication, service logic   |
-| Member 5 | ID         | QA and Testing       | Validation, testing, reports    |
-| Member 6 | ID         | UI and Documentation | Frontend templates, i18n, docs  |
+| Name | Student ID | Role | Responsibilities |
+|---|---|---|---|
+| Member 1 | ID | Project Manager | Sprint planning, coordination |
+| Member 2 | ID | Domain Research | Market analysis, labor taxonomy |
+| Member 3 | ID | Lead Developer | Backend architecture, models |
+| Member 4 | ID | Lead Developer | Authentication, service logic |
+| Member 5 | ID | QA and Testing | Validation, testing, reports |
+| Member 6 | ID | UI and Documentation | Frontend templates, i18n, docs |
 
 ## Academic Integrity
 
-All code in this repository is original project work. Third-party dependencies are listed in requirements.txt.
+All code in this repository is original project work. Third-party dependencies are documented in `requirements.txt`.
 
 ## License
 
