@@ -1,0 +1,14 @@
+# Web Framework
+Django==5.0.3
+
+# Database Connector (Required for MySQL)
+mysqlclient==2.2.4
+
+# Production Web Server (Required for DigitalOcean/Render deployment)
+gunicorn==21.2.0
+
+# Environment Variable Management (For hiding your DB passwords/Secret Keys)
+python-dotenv==1.0.1
+
+# Static File Serving (Crucial for production UI styling on cloud platforms)
+whitenoise==6.6.0
