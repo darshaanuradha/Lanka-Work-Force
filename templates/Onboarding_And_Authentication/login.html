@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Lanka Work Force</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], sinhala: ['Noto Sans Sinhala', 'sans-serif'] }, colors: { primary: '#1e3a5f', secondary: '#f59e0b', accent: '#10b981', lightbg: '#f8fafc' } } } }
+    </script>
+</head>
+<body class="bg-lightbg text-gray-800 font-sans antialiased max-w-md mx-auto min-h-screen relative border-x border-gray-200 flex flex-col bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
+
+    <div class="bg-primary text-white pt-12 pb-16 px-6 rounded-b-[2.5rem] shadow-lg relative z-10">
+        <div class="absolute top-4 right-4"><button class="bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-full text-xs font-semibold border border-white/20">EN / සිං</button></div>
+        <div class="text-center mt-4">
+            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
+                <i class="fa-solid fa-helmet-safety text-secondary text-3xl"></i>
+            </div>
+            <h1 class="text-3xl font-extrabold tracking-tight mb-1">Lanka <span class="text-secondary">Work Force</span></h1>
+            <p class="text-blue-100 font-medium text-sm mb-1">Welcome Back</p>
+            <p class="font-sinhala text-blue-200 text-sm">නැවතත් සාදරයෙන් පිළිගනිමු</p>
+        </div>
+    </div>
+
+    <main class="flex-1 px-6 -mt-8 relative z-20">
+        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-6">
+            <form action="client_home.html" method="POST" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Phone Number <span class="font-sinhala text-gray-500 font-medium text-xs ml-1">(දුරකථන අංකය)</span></label>
+                    <div class="flex shadow-sm rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-secondary">
+                        <span class="inline-flex items-center px-4 bg-gray-50 border-y border-l border-gray-200 text-gray-600 font-bold sm:text-sm">+94</span>
+                        <input type="tel" name="phone" inputmode="numeric" pattern="[0-9]{9}" placeholder="71 234 5678" required class="flex-1 block w-full px-4 py-3 sm:text-lg border border-gray-200 focus:outline-none font-semibold text-gray-900 tracking-wide">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">4-Digit PIN <span class="font-sinhala text-gray-500 font-medium text-xs ml-1">(මුරපදය)</span></label>
+                    <div class="relative shadow-sm rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-secondary">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"><i class="fa-solid fa-lock text-gray-400"></i></div>
+                        <input type="password" name="pin" inputmode="numeric" maxlength="4" placeholder="••••" required class="block w-full pl-12 pr-12 py-3 sm:text-2xl border border-gray-200 focus:outline-none font-bold text-gray-900 tracking-[0.5em] text-center rounded-xl">
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full flex justify-center items-center py-3.5 px-4 rounded-xl shadow-md text-lg font-bold text-white bg-primary hover:bg-blue-900 focus:outline-none transition active:scale-95 mt-2">
+                    Log In <i class="fa-solid fa-arrow-right-to-bracket ml-2"></i>
+                </button>
+            </form>
+        </div>
+
+        <div class="mt-8 text-center pb-8">
+            <p class="text-sm text-gray-600 font-medium">Don't have an account? <br><span class="font-sinhala text-xs text-gray-500">(ගිණුමක් නැද්ද?)</span></p>
+            <a href="register.html" class="mt-3 inline-block font-bold text-secondary bg-white px-6 py-2 rounded-full shadow-sm border border-orange-100 hover:bg-orange-50 transition">Register Now</a>
+        </div>
+    </main>
+</body>
+</html>

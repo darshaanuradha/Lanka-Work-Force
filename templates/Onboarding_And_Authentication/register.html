@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Lanka Work Force</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], sinhala: ['Noto Sans Sinhala', 'sans-serif'] }, colors: { primary: '#1e3a5f', secondary: '#f59e0b', accent: '#10b981', lightbg: '#f8fafc' } } } }
+    </script>
+</head>
+<body class="bg-lightbg text-gray-800 font-sans antialiased max-w-md mx-auto min-h-screen relative border-x border-gray-200 flex flex-col">
+
+    <header class="bg-white p-4 sticky top-0 z-50 flex items-center justify-between border-b border-gray-100 shadow-sm">
+        <a href="splash.html" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-50 text-gray-600 hover:bg-gray-100 transition"><i class="fa-solid fa-arrow-left"></i></a>
+        <h1 class="text-lg font-bold text-gray-800 tracking-tight">Create Account</h1>
+        <button class="bg-primary/10 text-primary hover:bg-primary/20 px-3 py-1.5 rounded-full text-xs font-semibold transition">EN / සිං</button>
+    </header>
+
+    <main class="flex-1 px-5 py-6">
+        <div class="mb-6">
+            <label class="block text-sm font-bold text-gray-700 mb-3 text-center">
+                What do you want to do? <br>
+                <span class="font-sinhala text-gray-500 font-medium text-xs">(ඔබට අවශ්‍ය කුමක්ද?)</span>
+            </label>
+            <div class="flex p-1 bg-gray-100 rounded-xl shadow-inner relative">
+                <button type="button" id="btn-client" class="flex-1 py-2.5 text-sm font-bold rounded-lg transition bg-white shadow text-primary z-10 relative">
+                    <i class="fa-solid fa-magnifying-glass mr-2"></i> Hire Workers
+                </button>
+                <button type="button" id="btn-worker" class="flex-1 py-2.5 text-sm font-bold rounded-lg transition text-gray-500 hover:text-gray-700 z-10 relative">
+                    <i class="fa-solid fa-trowel mr-2"></i> Find Jobs
+                </button>
+            </div>
+        </div>
+
+        <form action="login.html" method="POST" class="space-y-5 bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+            <input type="hidden" name="account_type" id="account_type" value="client">
+
+            <div>
+                <label class="block text-xs font-bold text-gray-700 mb-1">Full Name <span class="font-sinhala text-gray-500 font-medium ml-1">(නම)</span></label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><i class="fa-regular fa-user text-gray-400"></i></div>
+                    <input type="text" name="full_name" placeholder="e.g. G.B. Darsha Anuradha" required class="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-secondary font-medium bg-gray-50">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-gray-700 mb-1">Phone Number <span class="font-sinhala text-gray-500 font-medium ml-1">(දුරකථන අංකය)</span></label>
+                <div class="flex shadow-sm rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-secondary">
+                    <span class="inline-flex items-center px-3 bg-gray-100 border-y border-l border-gray-200 text-gray-600 font-bold">+94</span>
+                    <input type="tel" name="phone" inputmode="numeric" pattern="[0-9]{9}" placeholder="71 234 5678" required class="flex-1 block w-full px-3 py-3 border border-gray-200 focus:outline-none font-semibold bg-gray-50">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-gray-700 mb-1">Nearest City <span class="font-sinhala text-gray-500 font-medium ml-1">(ළඟම නගරය)</span></label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><i class="fa-solid fa-location-dot text-gray-400"></i></div>
+                    <input type="text" name="location" placeholder="e.g. Katugastota" required class="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-secondary font-medium bg-gray-50">
+                </div>
+            </div>
+
+            <div id="worker-fields" class="hidden space-y-5 pt-4 border-t border-gray-100 mt-4">
+                <p class="text-xs text-secondary font-bold text-center uppercase tracking-wide"><i class="fa-solid fa-helmet-safety mr-1"></i> Worker Details</p>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Category <span class="font-sinhala text-gray-500 font-medium ml-1">(රැකියාව)</span></label>
+                    <div class="relative">
+                        <select name="category" class="block w-full pl-3 pr-10 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-secondary font-medium bg-gray-50 appearance-none">
+                            <option value="" disabled selected>Select your trade...</option>
+                            <option value="mason">Mason (මේසන්)</option>
+                            <option value="laborer">Laborer (කම්කරු)</option>
+                            <option value="electrician">Electrician (විදුලි කාර්මික)</option>
+                            <option value="plumber">Plumber (ජලනල කාර්මික)</option>
+                        </select>
+                        <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"><i class="fa-solid fa-chevron-down text-gray-400 text-xs"></i></div>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Daily Wage <span class="font-sinhala text-gray-500 font-medium ml-1">(දෛනික කුලිය)</span></label>
+                    <div class="flex shadow-sm rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-secondary">
+                        <span class="inline-flex items-center px-3 bg-gray-100 border-y border-l border-gray-200 text-gray-600 font-bold">Rs.</span>
+                        <input type="number" name="daily_rate" inputmode="numeric" placeholder="2500" class="flex-1 block w-full px-3 py-3 border border-gray-200 focus:outline-none font-semibold bg-gray-50">
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-2 border-t border-gray-100 bg-blue-50/50 p-3 rounded-xl border border-blue-100 mt-2">
+                <label class="block text-xs font-bold text-primary mb-1">Create a 4-Digit PIN <span class="font-sinhala text-gray-500 font-medium ml-1">(මුරපදය)</span></label>
+                <p class="text-[10px] text-gray-500 mb-2 leading-tight">Create a simple 4-number PIN. You will use this to log in.</p>
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><i class="fa-solid fa-lock text-gray-400"></i></div>
+                    <input type="password" name="pin" inputmode="numeric" maxlength="4" placeholder="••••" required class="block w-full pl-10 pr-10 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary font-bold bg-white tracking-[0.5em] text-center text-lg">
+                </div>
+            </div>
+
+            <button type="submit" class="w-full flex justify-center items-center py-3.5 px-4 rounded-xl shadow-md text-base font-bold text-white bg-accent hover:bg-green-600 transition active:scale-95 mt-4">
+                Create Account <i class="fa-solid fa-check-circle ml-2 text-sm"></i>
+            </button>
+        </form>
+
+        <div class="mt-6 text-center pb-8">
+            <p class="text-sm text-gray-600 font-medium">Already have an account? <a href="login.html" class="font-bold text-primary hover:text-secondary ml-1 transition">Log In</a></p>
+        </div>
+    </main>
+
+    <script>
+        const btnClient = document.getElementById('btn-client');
+        const btnWorker = document.getElementById('btn-worker');
+        const workerFields = document.getElementById('worker-fields');
+        const accountTypeInput = document.getElementById('account_type');
+        const categoryInput = document.querySelector('select[name="category"]');
+        const wageInput = document.querySelector('input[name="daily_rate"]');
+
+        btnClient.addEventListener('click', () => {
+            btnClient.className = "flex-1 py-2.5 text-sm font-bold rounded-lg transition bg-white shadow text-primary z-10 relative";
+            btnWorker.className = "flex-1 py-2.5 text-sm font-bold rounded-lg transition text-gray-500 hover:text-gray-700 z-10 relative";
+            workerFields.classList.add('hidden');
+            categoryInput.required = false; wageInput.required = false;
+            accountTypeInput.value = 'client';
+        });
+
+        btnWorker.addEventListener('click', () => {
+            btnWorker.className = "flex-1 py-2.5 text-sm font-bold rounded-lg transition bg-white shadow text-primary z-10 relative";
+            btnClient.className = "flex-1 py-2.5 text-sm font-bold rounded-lg transition text-gray-500 hover:text-gray-700 z-10 relative";
+            workerFields.classList.remove('hidden');
+            categoryInput.required = true; wageInput.required = true;
+            accountTypeInput.value = 'worker';
+        });
+    </script>
+</body>
+</html>

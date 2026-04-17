@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile - Lanka Work Force</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        sinhala: ["Noto Sans Sinhala", "sans-serif"],
+                    },
+                    colors: {
+                        primary: "#1e3a5f",
+                        secondary: "#f59e0b",
+                        accent: "#10b981",
+                        lightbg: "#f8fafc",
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="bg-lightbg text-gray-800 font-sans antialiased min-h-screen">
+
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="bg-primary text-white sticky top-0 z-50 shadow-md">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+                <h1 class="text-lg sm:text-xl font-bold tracking-tight">
+                    My Profile
+                    <span class="font-sinhala text-xs sm:text-sm font-medium ml-1 text-blue-200">(මගේ ගිණුම)</span>
+                </h1>
+                <button class="bg-white/20 hover:bg-white/30 px-2.5 py-1.5 rounded text-xs font-semibold transition border border-white/20">
+                    EN / සිං
+                </button>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <main class="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5 pb-24 md:pb-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                <!-- Left/Main Column -->
+                <div class="lg:col-span-2 space-y-5">
+                    <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 text-center relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-16 bg-gradient-to-r from-primary to-blue-800 opacity-90"></div>
+
+                        <div class="relative mt-2">
+                            <div class="w-20 h-20 mx-auto rounded-full bg-orange-100 text-orange-600 border-4 border-white shadow-md flex items-center justify-center text-3xl font-bold mb-3">
+                                D
+                            </div>
+                            <button class="absolute bottom-2 right-1/2 translate-x-7 bg-primary text-white w-7 h-7 rounded-full border-2 border-white shadow flex items-center justify-center text-xs hover:bg-blue-700">
+                                <i class="fa-solid fa-camera"></i>
+                            </button>
+                        </div>
+
+                        <h2 class="text-xl font-bold text-gray-900">Darsha Anuradha</h2>
+                        <p class="text-sm text-gray-500 font-medium mb-2">
+                            <i class="fa-solid fa-phone text-xs mr-1"></i> +94 71 234 5678
+                        </p>
+
+                        <div id="account-badge" class="inline-flex items-center justify-center px-3 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-full border border-blue-100 uppercase tracking-wide">
+                            Client Account
+                        </div>
+                    </section>
+
+                    <section class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                        <ul class="divide-y divide-gray-100">
+                            <li>
+                                <a href="#" class="flex items-center justify-between p-4 hover:bg-gray-50 transition">
+                                    <div class="flex items-center space-x-3 min-w-0">
+                                        <div class="w-9 h-9 rounded-full bg-gray-50 border border-gray-100 text-gray-600 flex items-center justify-center shrink-0">
+                                            <i class="fa-regular fa-user"></i>
+                                        </div>
+                                        <div class="min-w-0">
+                                            <span class="block font-bold text-gray-800 text-sm truncate">Personal Details</span>
+                                            <span class="block font-sinhala text-xs text-gray-500 truncate">(පුද්ගලික විස්තර)</span>
+                                        </div>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right text-gray-400 text-sm ml-3"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="flex items-center justify-between p-4 hover:bg-gray-50 transition">
+                                    <div class="flex items-center space-x-3 min-w-0">
+                                        <div class="w-9 h-9 rounded-full bg-orange-50 border border-orange-100 text-secondary flex items-center justify-center shrink-0">
+                                            <i class="fa-solid fa-language"></i>
+                                        </div>
+                                        <div class="min-w-0">
+                                            <span class="block font-bold text-gray-800 text-sm truncate">Language</span>
+                                            <span class="block font-sinhala text-xs text-gray-500 truncate">(භාෂාව)</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center space-x-2 text-sm text-gray-600 font-bold ml-3 shrink-0">
+                                        <span>English</span>
+                                        <i class="fa-solid fa-chevron-right text-gray-400 text-sm"></i>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="flex items-center justify-between p-4 hover:bg-gray-50 transition">
+                                    <div class="flex items-center space-x-3 min-w-0">
+                                        <div class="w-9 h-9 rounded-full bg-red-50 border border-red-100 text-red-500 flex items-center justify-center shrink-0">
+                                            <i class="fa-solid fa-lock"></i>
+                                        </div>
+                                        <div class="min-w-0">
+                                            <span class="block font-bold text-gray-800 text-sm truncate">Update PIN Code</span>
+                                            <span class="block font-sinhala text-xs text-gray-500 truncate">(මුරපදය වෙනස් කරන්න)</span>
+                                        </div>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right text-gray-400 text-sm ml-3"></i>
+                                </a>
+                            </li>
+
+                            <li class="bg-gray-50/50">
+                                <div class="flex items-center justify-between p-4 gap-3">
+                                    <div class="flex items-center space-x-3 min-w-0">
+                                        <div class="w-9 h-9 rounded-full bg-accent/10 border border-accent/20 text-accent flex items-center justify-center shrink-0">
+                                            <i class="fa-solid fa-rotate"></i>
+                                        </div>
+                                        <div class="min-w-0">
+                                            <span class="block font-bold text-gray-800 text-sm">Switch to Worker Mode</span>
+                                            <span class="block font-sinhala text-xs text-gray-500">(සේවක ගිණුමට මාරුවන්න)</span>
+                                        </div>
+                                    </div>
+
+                                    <label class="flex items-center cursor-pointer shrink-0">
+                                        <div class="relative">
+                                            <input type="checkbox" id="mode-toggle" class="sr-only" />
+                                            <div class="block bg-gray-300 w-12 h-7 rounded-full transition-colors toggle-track"></div>
+                                            <div class="dot absolute left-1 top-1 bg-white w-5 h-5 rounded-full transition-transform shadow-sm flex items-center justify-center">
+                                                <i class="fa-solid fa-briefcase text-[10px] text-gray-400 hidden toggle-icon"></i>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+
+                <!-- Right Column -->
+                <aside class="space-y-4 lg:sticky lg:top-24 h-fit">
+                    <a href="#" class="flex items-center justify-center space-x-2 bg-white border border-gray-200 text-gray-700 font-bold py-3.5 px-4 rounded-xl shadow-sm hover:bg-gray-50 transition w-full">
+                        <i class="fa-solid fa-headset"></i>
+                        <span>Help & Support</span>
+                    </a>
+
+                    <button class="w-full flex items-center justify-center space-x-2 bg-red-50 hover:bg-red-100 text-red-600 font-bold py-3.5 px-4 rounded-xl transition border border-red-100 shadow-sm">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <span>Log Out</span>
+                    </button>
+                </aside>
+            </div>
+        </main>
+
+        <!-- Bottom nav (mobile), normal nav (md+) -->
+        <nav class="bg-white border-t border-gray-200 fixed bottom-0 inset-x-0 z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] md:static md:shadow-none">
+            <div class="max-w-6xl mx-auto flex justify-around p-3">
+                <a href="client_home.html" class="flex flex-col items-center text-gray-400 hover:text-primary transition">
+                    <i class="fa-solid fa-house text-xl mb-1"></i>
+                    <span class="text-[10px] font-medium">Home</span>
+                </a>
+                <a href="../The_Client/client_home.html" class="flex flex-col items-center text-gray-400 hover:text-primary transition">
+                    <i class="fa-solid fa-clipboard-list text-xl mb-1"></i>
+                    <span class="text-[10px] font-medium">Bookings</span>
+                </a>
+                <a href="#" class="flex flex-col items-center text-primary relative">
+                    <i class="fa-solid fa-user text-xl mb-1"></i>
+                    <span class="text-[10px] font-medium">Profile</span>
+                    <div class="absolute -top-1 -right-1 w-2 h-2 bg-secondary rounded-full border border-white"></div>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <style>
+        input:checked ~ .toggle-track { background-color: #10b981; }
+        input:checked ~ .dot { transform: translateX(20px); }
+        input:checked ~ .dot .toggle-icon { display: block; color: #10b981; }
+    </style>
+
+    <script>
+        const modeToggle = document.getElementById("mode-toggle");
+        const accountBadge = document.getElementById("account-badge");
+
+        modeToggle.addEventListener("change", (e) => {
+            if (e.target.checked) {
+                accountBadge.className =
+                    "inline-flex items-center justify-center px-3 py-1 bg-green-50 text-green-700 text-xs font-bold rounded-full border border-green-100 uppercase tracking-wide";
+                accountBadge.textContent = "Worker Account";
+                setTimeout(() => alert("Switched to Worker Mode. Redirecting to Jobs Dashboard..."), 300);
+            } else {
+                accountBadge.className =
+                    "inline-flex items-center justify-center px-3 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-full border border-blue-100 uppercase tracking-wide";
+                accountBadge.textContent = "Client Account";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunil's Profile - Lanka Work Force</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], sinhala: ['Noto Sans Sinhala', 'sans-serif'] }, colors: { primary: '#1e3a5f', secondary: '#f59e0b', accent: '#10b981', lightbg: '#f8fafc' } } } }
+    </script>
+</head>
+<body class="bg-lightbg text-gray-800 font-sans antialiased max-w-md mx-auto min-h-screen relative border-x border-gray-200 flex flex-col">
+
+    <header class="bg-white p-4 sticky top-0 z-40 flex items-center justify-between border-b border-gray-100 shadow-sm">
+        <a href="client_home.html" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-50 text-gray-600 hover:bg-gray-100 transition"><i class="fa-solid fa-arrow-left"></i></a>
+        <h1 class="text-lg font-bold text-gray-800 tracking-tight">Worker Profile</h1>
+        <div class="w-10"></div>
+    </header>
+
+    <main class="flex-1 pb-24">
+        <div class="bg-primary pt-6 pb-12 px-4 text-center relative rounded-b-[2rem]">
+            <img src="https://i.pravatar.cc/150?img=11" alt="Sunil" class="w-28 h-28 mx-auto rounded-full object-cover border-4 border-white shadow-lg relative z-10">
+            <div class="absolute bottom-10 right-1/2 translate-x-12 w-6 h-6 bg-green-500 border-2 border-white rounded-full z-20 flex items-center justify-center shadow">
+                <i class="fa-solid fa-check text-white text-[10px]"></i>
+            </div>
+        </div>
+
+        <div class="px-5 -mt-8 relative z-20">
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 text-center">
+                <h2 class="text-2xl font-bold text-gray-900 mb-1">Sunil</h2>
+                <div class="flex items-center justify-center space-x-2 mb-3">
+                    <span class="bg-orange-50 text-orange-700 px-3 py-1 rounded-full text-xs font-bold border border-orange-100 uppercase tracking-wide">Mason</span>
+                    <span class="text-gray-500 text-sm font-medium"><i class="fa-solid fa-location-dot mr-1 text-red-400"></i>Katugastota</span>
+                </div>
+                <div class="flex justify-around items-center border-t border-gray-100 pt-4 mt-2">
+                    <div>
+                        <p class="text-xs text-gray-500 font-medium mb-1">Daily Rate</p>
+                        <p class="text-lg font-bold text-gray-900">Rs. 2500</p>
+                    </div>
+                    <div class="w-px h-10 bg-gray-200"></div>
+                    <div>
+                        <p class="text-xs text-gray-500 font-medium mb-1">Rating</p>
+                        <p class="text-lg font-bold text-gray-900"><i class="fa-solid fa-star text-secondary text-sm mr-1"></i>4.8 <span class="text-xs font-normal text-gray-400">(18)</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white p-4 border-t border-gray-100 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.05)] z-40">
+        <button onclick="toggleModal('booking-modal')" class="w-full py-3.5 rounded-xl text-lg font-bold text-white bg-accent hover:bg-green-600 transition shadow-md flex justify-center items-center active:scale-95">
+            Book Worker Now <i class="fa-solid fa-briefcase ml-2"></i>
+        </button>
+    </div>
+
+    <div id="booking-modal" class="fixed inset-0 bg-gray-900/60 z-50 hidden flex-col justify-end transition-opacity opacity-0">
+        <div class="absolute inset-0" onclick="toggleModal('booking-modal')"></div>
+        <div class="bg-white w-full rounded-t-3xl p-6 relative transform translate-y-full transition-transform duration-300" id="modal-content">
+            <button onclick="toggleModal('booking-modal')" class="absolute top-4 right-5 w-8 h-8 bg-gray-100 text-gray-600 rounded-full flex items-center justify-center hover:bg-gray-200"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-xl font-bold text-gray-900 mb-1">Confirm Booking</h3>
+            <p class="text-sm font-sinhala text-gray-500 mb-6 border-b border-gray-100 pb-4">(වෙන් කිරීම තහවුරු කරන්න)</p>
+            
+            <form action="client_bookings.html" method="POST" class="space-y-5">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">When do you need the worker?</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="relative border border-gray-200 rounded-xl p-3 cursor-pointer hover:bg-orange-50 focus-within:ring-2 focus-within:ring-secondary focus-within:border-secondary transition">
+                            <input type="radio" name="booking_date" value="today" class="absolute right-3 top-3 text-secondary focus:ring-secondary h-4 w-4" required>
+                            <span class="block text-sm font-bold text-gray-900">Today</span>
+                            <span class="block font-sinhala text-xs text-gray-500 mt-1">(අද)</span>
+                        </label>
+                        <label class="relative border border-gray-200 rounded-xl p-3 cursor-pointer hover:bg-orange-50 focus-within:ring-2 focus-within:ring-secondary focus-within:border-secondary transition">
+                            <input type="radio" name="booking_date" value="tomorrow" class="absolute right-3 top-3 text-secondary focus:ring-secondary h-4 w-4" required>
+                            <span class="block text-sm font-bold text-gray-900">Tomorrow</span>
+                            <span class="block font-sinhala text-xs text-gray-500 mt-1">(හෙට)</span>
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="w-full py-3.5 rounded-xl text-base font-bold text-white bg-primary hover:bg-blue-900 transition shadow-md flex justify-center items-center active:scale-95">
+                    Send Request to Sunil <i class="fa-solid fa-paper-plane ml-2"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleModal(modalID) {
+            const modal = document.getElementById(modalID);
+            const content = document.getElementById('modal-content');
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                setTimeout(() => { modal.classList.remove('opacity-0'); content.classList.remove('translate-y-full'); }, 10);
+            } else {
+                modal.classList.add('opacity-0'); content.classList.add('translate-y-full');
+                setTimeout(() => { modal.classList.add('hidden'); }, 300);
+            }
+        }
+    </script>
+</body>
+</html>

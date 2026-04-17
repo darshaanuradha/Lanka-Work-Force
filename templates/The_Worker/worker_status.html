@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Status - Lanka Work Force</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], sinhala: ['Noto Sans Sinhala', 'sans-serif'] }, colors: { primary: '#1e3a5f', secondary: '#f59e0b', accent: '#10b981', lightbg: '#f8fafc' } } } }
+    </script>
+    <style>
+        input:checked + .toggle-bg { background-color: #10b981; } 
+        input:not(:checked) + .toggle-bg { background-color: #d1d5db; } 
+        input:checked + .toggle-bg .toggle-dot { transform: translateX(72px); }
+        input:not(:checked) + .toggle-bg .toggle-icon { color: #9ca3af; } 
+        input:checked + .toggle-bg .toggle-icon { color: #10b981; } 
+    </style>
+</head>
+<body class="bg-lightbg text-gray-800 font-sans antialiased max-w-md mx-auto min-h-screen relative border-x border-gray-200 flex flex-col">
+
+    <header class="bg-white p-4 sticky top-0 z-50 flex items-center border-b border-gray-100 shadow-sm">
+        <a href="worker_home.html" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-50 text-gray-600 hover:bg-gray-100 transition"><i class="fa-solid fa-arrow-left"></i></a>
+        <h1 class="text-lg font-bold text-gray-800 tracking-tight ml-4">My Status</h1>
+    </header>
+
+    <main class="flex-1 p-5">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 text-center mb-6">
+            <h2 class="text-xl font-bold text-gray-900 mb-2">Are you ready to work?</h2>
+            <p class="font-sinhala text-sm text-gray-500 mb-6">(ඔබ රැකියාවට සූදානම්ද?)</p>
+            
+            <label class="flex items-center justify-center cursor-pointer relative mb-4">
+                <input type="checkbox" id="availability-toggle" class="sr-only" checked>
+                <div class="toggle-bg w-32 h-14 bg-accent rounded-full transition-colors duration-300 relative shadow-inner">
+                    <div class="toggle-dot absolute left-1.5 top-1.5 w-11 h-11 bg-white rounded-full transition-transform duration-300 shadow-md flex items-center justify-center">
+                        <i class="fa-solid fa-power-off text-accent toggle-icon"></i>
+                    </div>
+                </div>
+            </label>
+            
+            <p id="status-text" class="text-lg font-bold text-accent">Online - Visible to Clients</p>
+        </div>
+
+        <div id="quick-settings" class="space-y-4">
+            <h3 class="font-bold text-gray-800">Quick Updates for Today</h3>
+            
+            <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                <label class="block text-xs font-bold text-gray-500 mb-2 uppercase tracking-wide">Current Location <span class="font-sinhala ml-1">(ස්ථානය)</span></label>
+                <div class="flex items-center">
+                    <i class="fa-solid fa-location-dot text-red-500 mr-3 text-lg"></i>
+                    <input type="text" value="Katugastota" class="flex-1 text-lg font-bold text-gray-900 focus:outline-none focus:border-b-2 focus:border-primary bg-transparent pb-1">
+                </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                <label class="block text-xs font-bold text-gray-500 mb-2 uppercase tracking-wide">Today's Expected Rate <span class="font-sinhala ml-1">(දෛනික කුලිය)</span></label>
+                <div class="flex items-center">
+                    <span class="text-gray-500 font-bold mr-2">Rs.</span>
+                    <input type="number" value="2500" class="flex-1 text-lg font-bold text-gray-900 focus:outline-none focus:border-b-2 focus:border-primary bg-transparent pb-1">
+                </div>
+            </div>
+
+            <button class="w-full bg-primary text-white font-bold py-3.5 rounded-xl shadow mt-2 hover:bg-blue-900 active:scale-95 transition">
+                Save Updates
+            </button>
+        </div>
+    </main>
+
+    <script>
+        const toggle = document.getElementById('availability-toggle');
+        const statusText = document.getElementById('status-text');
+        const quickSettings = document.getElementById('quick-settings');
+
+        toggle.addEventListener('change', (e) => {
+            if(e.target.checked) {
+                statusText.textContent = "Online - Visible to Clients";
+                statusText.className = "text-lg font-bold text-accent";
+                quickSettings.style.opacity = "1";
+                quickSettings.style.pointerEvents = "auto";
+            } else {
+                statusText.textContent = "Offline - Hidden from Clients";
+                statusText.className = "text-lg font-bold text-gray-400";
+                quickSettings.style.opacity = "0.4";
+                quickSettings.style.pointerEvents = "none";
+            }
+        });
+    </script>
+</body>
+</html>
