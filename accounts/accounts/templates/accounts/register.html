@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Register - Lanka Work Force{% endblock %}
+{% block content %}
+    <div class="text-center mb-6">
+        <h2 class="text-3xl font-extrabold text-gray-800">Create Account</h2>
+        <p class="text-gray-500 mt-2">Join as a Client or a Worker</p>
+    </div>
+    <form method="POST" action="{% url 'accounts:register' %}" class="w-full">
+        {% csrf_token %}
+        <div class="text-left mb-6">{{ form.as_p }}</div>
+        <button type="submit"
+                class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg shadow-lg transition duration-200 text-lg">
+            Register Now
+        </button>
+    </form>
+    <div class="mt-6 text-center">
+        <p class="text-gray-600">Already have an account?</p>
+        <a href="{% url 'accounts:login' %}"
+           class="text-blue-600 font-bold hover:underline mt-1 inline-block">Login Here</a>
+    </div>
+{% endblock %}

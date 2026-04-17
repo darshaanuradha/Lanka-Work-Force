@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "accounts",
     "labor_directory",
     "reviews",
+    "core",
 ]
 
 MIDDLEWARE = [
@@ -150,3 +151,5 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # https://docs.djangoproject.com/en/6.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+# Custom User Model definition
+AUTH_USER_MODEL = "accounts.CustomUser"

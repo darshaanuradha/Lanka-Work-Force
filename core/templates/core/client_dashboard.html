@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard - Lanka Work Force{% endblock %}
+{% block content %}
+    <div class="mb-6 flex justify-between items-center">
+        <h2 class="text-xl font-bold text-gray-800">Find Workers</h2>
+        <form method="POST" action="{% url 'accounts:logout' %}">
+            {% csrf_token %}
+            <button type="submit"
+                    class="text-sm text-red-600 font-semibold hover:underline">Logout</button>
+        </form>
+    </div>
+    <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">Categories</h3>
+    <div class="grid grid-cols-2 gap-3 mb-8">
+        {% for category in categories %}
+            <button class="bg-blue-50 border border-blue-200 text-blue-700 font-medium py-3 rounded-lg shadow-sm hover:bg-blue-100 transition">
+                {{ category.name_en }}
+            </button>
+        {% empty %}
+            <p class="text-sm text-gray-500 col-span-2">No categories available.</p>
+        {% endfor %}
+    </div>
+    <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">Available Now</h3>
+    <div class="space-y-4 mb-8">
+        {% for worker in workers %}
+            <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm flex justify-between items-center">
+                <div>
+                    <h4 class="font-bold text-gray-800">{{ worker.category.name_en }}</h4>
+                    <p class="text-sm text-gray-500">{{ worker.user.phone_number }} • {{ worker.location }}</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-lg font-bold text-green-600">Rs. {{ worker.daily_rate }}</p>
+                    <p class="text-xs text-yellow-500 font-bold">★ {{ worker.average_rating }}</p>
+                </div>
+            </div>
+        {% empty %}
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 text-center">
+                <p class="text-gray-500 font-medium">No workers are currently online.</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
