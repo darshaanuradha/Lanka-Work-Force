@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Complete Profile - Lanka Work Force{% endblock %}
+{% block content %}
+    <div class="text-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-800">Complete Your Profile</h2>
+        <p class="text-gray-500 mt-2 text-sm">
+            Clients need to know what you do and how much you charge before they can hire you.
+        </p>
+    </div>
+    <form method="POST"
+          action="{% url 'core:worker_onboarding' %}"
+          class="bg-white border border-gray-200 p-6 rounded-xl shadow-sm">
+        {% csrf_token %}
+        <div class="mb-4 text-left">
+            <label class="block text-gray-700 font-bold mb-2">What is your trade?</label>
+            {{ form.category }}
+        </div>
+        <div class="mb-4 text-left">
+            <label class="block text-gray-700 font-bold mb-2">City / Location</label>
+            {{ form.location }}
+            <p class="text-xs text-gray-400 mt-1">E.g., Kandy, Colombo 03</p>
+        </div>
+        <div class="mb-6 text-left">
+            <label class="block text-gray-700 font-bold mb-2">Daily Wage (LKR)</label>
+            {{ form.daily_rate }}
+        </div>
+        <button type="submit"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg shadow-md transition text-lg">
+            Save Profile & Go Online
+        </button>
+    </form>
+{% endblock %}

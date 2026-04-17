@@ -29,9 +29,15 @@ class CustomUserManager(BaseUserManager):
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
+    full_name = models.CharField(max_length=255, default="john doe")
     phone_number = models.CharField(max_length=15, unique=True)
-    is_worker = models.BooleanField(default=False)
-    is_client = models.BooleanField(default=False)
+    ROLE_CHOICES = [
+        ("Client", "Client"),
+        ("Worker", "Worker"),
+    ]
+    active_role = models.CharField(
+        max_length=10, choices=ROLE_CHOICES, default="Client"
+    )
 
     # Required fields for Django admin and permissions
     is_active = models.BooleanField(default=True)

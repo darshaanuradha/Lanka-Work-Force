@@ -10,9 +10,10 @@ def register_view(request):
             user = form.save()
             # Automatically log the user in after registration
             login(request, user)
-            return redirect(
-                "core:client_dashboard"
-            )  # Redirect to the dashboard we built earlier
+            # Traffic Cop: Send them to the right dashboard
+            if user.active_role == "Worker":
+                return redirect("core:worker_dashboard")
+            return redirect("core:client_dashboard")
     else:
         form = CustomUserCreationForm()
 
@@ -28,6 +29,9 @@ def login_view(request):
             user = authenticate(username=phone_number, password=password)
             if user is not None:
                 login(request, user)
+                # Traffic Cop: Send them to the right dashboard
+                if user.active_role == "Worker":
+                    return redirect("core:worker_dashboard")
                 return redirect("core:client_dashboard")
     else:
         form = PhoneLoginForm()
