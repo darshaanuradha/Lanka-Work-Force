@@ -5,6 +5,19 @@ from django.shortcuts import redirect
 from .forms import WorkerProfileForm
 
 
+def splash_screen(request):
+    """
+    The main landing page.
+    If they are already logged in, skip this and send them to their dashboard.
+    """
+    if request.user.is_authenticated:
+        if request.user.active_role == "Worker":
+            return redirect("core:worker_dashboard")
+        return redirect("core:client_dashboard")
+
+    return render(request, "splash.html")
+
+
 def client_dashboard(request):
     """
     Handles the main demand-side interface (FR2.1 & FR2.2).
