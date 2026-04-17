@@ -20,4 +20,4 @@ def client_dashboard(request):
         "workers": available_workers,
     }
 
-    return render(request, "core/client_dashboard.html", context)
+    return render(request, "client_dashboard.html", context)
