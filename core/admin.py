@@ -20,7 +20,6 @@ class ReviewAdmin(admin.ModelAdmin):
         "worker",
         "client_name",
         "star_rating",
-        "quick_tap_tag",
         "created_at",
     )
     list_filter = ("star_rating",)

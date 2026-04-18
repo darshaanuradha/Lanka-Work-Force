@@ -1,5 +1,0 @@
-Django
-mysqlclient
-gunicorn
-python-dotenv
-whitenoise

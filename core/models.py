@@ -28,7 +28,29 @@ class WorkerProfile(models.Model):
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, null=True, related_name="workers"
     )
-    location = models.CharField(max_length=255, help_text="E.g., Kandy, Colombo")
+    LOCATION_CHOICES = [
+        ("Kandy", "Kandy"),
+        ("Colombo", "Colombo"),
+        ("Galle", "Galle"),
+        ("Jaffna", "Jaffna"),
+        ("Anuradhapura", "Anuradhapura"),
+        ("Trincomalee", "Trincomalee"),
+        ("Matara", "Matara"),
+        ("Hambantota", "Hambantota"),
+        ("Nuwara Eliya", "Nuwara Eliya"),
+        ("Badulla", "Badulla"),
+        ("Ratnapura", "Ratnapura"),
+        ("Puttalam", "Puttalam"),
+        ("Kurunegala", "Kurunegala"),
+        ("Monaragala", "Monaragala"),
+        ("Vavuniya", "Vavuniya"),
+        ("Mannar", "Mannar"),
+        ("Kilinochchi", "Kilinochchi"),
+        ("Mullaitivu", "Mullaitivu"),
+    ]
+    location = models.CharField(
+        max_length=255, choices=LOCATION_CHOICES, help_text="Primary location of work"
+    )
     daily_rate = models.DecimalField(
         max_digits=8, decimal_places=2, help_text="Daily wage in LKR"
     )
@@ -42,19 +64,27 @@ class WorkerProfile(models.Model):
         return f"Worker: {self.user.phone_number} - {self.category.name_en if self.category else 'Uncategorized'}"
 
 
+class QuickTapTag(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Review(models.Model):
     worker = models.ForeignKey(
         WorkerProfile, on_delete=models.CASCADE, related_name="reviews"
     )
-    client_name = models.CharField(
-        max_length=255, help_text="Name of the client who left the review"
+    client_name = models.OneToOneField(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="reviews_given"
     )
     star_rating = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(5)]
     )
-    quick_tap_tag = models.CharField(
-        max_length=50, help_text="E.g., 'On Time', 'High Quality'"
+    quicktap_tags = models.ManyToManyField(
+        QuickTapTag, blank=True, help_text="Select applicable quick tap tags"
     )
+    comment = models.TextField(blank=True, help_text="Optional comment from the client")
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

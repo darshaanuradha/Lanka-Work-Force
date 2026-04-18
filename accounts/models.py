@@ -29,6 +29,23 @@ class CustomUserManager(BaseUserManager):
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
+    """
+    Custom authentication user model that uses ``phone_number`` as the unique login identifier
+    instead of username/email.
+    Why these fields are here:
+    - ``full_name``: stores the user's display/name value.
+    - ``phone_number``: primary credential for authentication (``USERNAME_FIELD``) and must be unique.
+    - ``active_role``: tracks the currently selected app role (``Client`` or ``Worker``).
+    - ``is_active``: controls whether the account is enabled for login.
+    - ``is_staff``: grants access to Django admin/staff-only areas.
+    - ``date_joined``: records account creation timestamp.
+    - ``objects``: custom manager required for creating users/superusers correctly with this model.
+    Auth configuration:
+    - ``USERNAME_FIELD = "phone_number"`` tells Django to authenticate with phone numbers.
+    - ``REQUIRED_FIELDS = []`` is intentional because with this setup only phone number and password
+        are required by default when creating a superuser.
+    """
+
     full_name = models.CharField(max_length=255, default="john doe")
     phone_number = models.CharField(max_length=15, unique=True)
     ROLE_CHOICES = [
